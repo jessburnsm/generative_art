@@ -1,27 +1,16 @@
 class Component{
   constructor(design_elements = []){
     this.design_elements = design_elements;
+
+    // If design elements were not provided, generate
     if(!this.design_elements.length)
       this.generate_design_elements();
   }
 
   generate_design_elements(){
-    let elements = [
-      'FillCircleElement',
-      //'StrokeCircleElement',
-      //'ConcentricCircleElement',
-      //'OverlappingCircleElement',
-      //'HalfCircleElement',
-      'ArcElement'
-    ];
-
-    for(let i = 0; i < getRandomInt(1, 15); i++){
-      let element = fetch_random_array_item(elements);
-      console.log(element);
-      this.design_elements.push(Factory.getInstance(element));
+    for(let i = 0; i < getRandomInt(1, 10); i++){
+      this.design_elements.push(Factory.getInstance(fetch_random_array_item(ELEMENT_LIBRARY)));
     }
-
-    console.log('-----');
   }
 
   render(x = 0, y = 0, shape_size){
