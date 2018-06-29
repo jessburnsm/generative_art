@@ -8,10 +8,13 @@ class SquareGrid {
     this.shape_size = (this.grid_size * .9);
 
     this.components = components;
+
+    // If components were not provided, generate
     if(!this.components.length)
       this.generateComponents();
   }
 
+  // Generate a list of components to fill the grid
   generateComponents(){
     for(let i = 0; i < Math.pow(this.num_blocks, 2); i++){
       this.components.push(new Component());
