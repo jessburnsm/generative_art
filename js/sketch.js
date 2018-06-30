@@ -30,3 +30,7 @@ function setup(){
 function draw(){
   new SquareGrid(900, 3).render();
 }
+
+function exportCanvas(){
+  save();
+}
