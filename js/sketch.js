@@ -18,6 +18,8 @@ const ELEMENT_LIBRARY = [
   'ArcElement'
 ];
 
+const DEBUG = true;
+
 function setup(){
   createCanvas(1000, 1000, SVG);
   angleMode(DEGREES);
