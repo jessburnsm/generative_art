@@ -8,6 +8,10 @@ class DesignElement{
     this.shape_size = DEFAULT_SHAPE_SIZE;
   }
 
+  debug(){
+    return this.params;
+  }
+
   setPosition(x, y){
     this.x = x;
     this.y = y;
@@ -25,6 +29,7 @@ class DesignElement{
 class ArcElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'ArcElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['length'] = getRandomIntInclusive(10, 360);
@@ -49,6 +54,7 @@ class ArcElement extends DesignElement{
 class ConcentricCircleElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'ConcentricCircleElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['offset'] = getRandomIntInclusive(10, 50);
@@ -73,6 +79,7 @@ class ConcentricCircleElement extends DesignElement{
 class ConcentricSquareElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'ConcentricSquareElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['offset'] = getRandomIntInclusive(10, 50);
@@ -105,6 +112,7 @@ class ConcentricSquareElement extends DesignElement{
 class FillCircleElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'FullCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
     this.ellipse_size = getRandomIntInclusive((this.shape_size * .1), this.shape_size);
   }
@@ -123,6 +131,7 @@ class FillCircleElement extends DesignElement{
 class HalfCircleElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'HalfCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
     this.params['ellipse_size'] = getRandomIntInclusive((this.shape_size * .1), this.shape_size);
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
@@ -144,6 +153,7 @@ class HalfCircleElement extends DesignElement{
 class OverlappingCircleElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'OverlappingCircleElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['circle_size'] = getRandomIntInclusive(10, (this.shape_size / 2));
@@ -191,6 +201,7 @@ class PlaceholderElement extends DesignElement{
 class StrokeCircleElement extends DesignElement{
   constructor(options = {}){
     super();
+    this.params['design_element'] = 'StrokeCircleElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
   }
