@@ -35,6 +35,15 @@ class ArcElement extends DesignElement{
     this.params['length'] = getRandomIntInclusive(10, 360);
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
     this.params['angle'] = fetch_random_array_item(angles);
+    this.setEllipseSize();
+  }
+
+  setSize(size){
+    this.params['shape_size'] = size;
+    this.setEllipseSize();
+  }
+
+  setEllipseSize(){
     this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
   }
 
