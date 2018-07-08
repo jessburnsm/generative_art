@@ -5,7 +5,7 @@ class DesignElement{
     this.params = {};
     this.x = 0;
     this.y = 0;
-    this.shape_size = DEFAULT_SHAPE_SIZE;
+    this.params['shape_size'] = options['shape_size'] || DEFAULT_SHAPE_SIZE;
   }
 
   debug(){
@@ -18,7 +18,7 @@ class DesignElement{
   }
 
   setSize(size){
-    this.shape_size = size;
+    this.params['shape_size'] = size;
   }
 
   render(){
@@ -35,7 +35,7 @@ class ArcElement extends DesignElement{
     this.params['length'] = getRandomIntInclusive(10, 360);
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
     this.params['angle'] = fetch_random_array_item(angles);
-    this.params['ellipse_size'] = getRandomIntInclusive((this.shape_size * .1), this.shape_size);
+    this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
   }
 
   render(){
@@ -58,7 +58,7 @@ class ConcentricCircleElement extends DesignElement{
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['offset'] = getRandomIntInclusive(10, 50);
-    this.steps = (this.shape_size / this.params['offset']);
+    this.steps = (this.params['shape_size'] / this.params['offset']);
   }
 
   render(){
@@ -69,7 +69,7 @@ class ConcentricCircleElement extends DesignElement{
     push();
       translate(this.x, this.y);
       for(let i = 0; i < this.steps; i++){
-        ellipse(0, 0, (this.shape_size - (this.params['offset'] * i)), (this.shape_size - (this.params['offset'] * i)));
+        ellipse(0, 0, (this.params['shape_size'] - (this.params['offset'] * i)), (this.params['shape_size'] - (this.params['offset'] * i)));
       }
 
     pop();
@@ -83,7 +83,7 @@ class ConcentricSquareElement extends DesignElement{
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
     this.params['offset'] = getRandomIntInclusive(10, 50);
-    this.steps = (this.shape_size / this.params['offset']);
+    this.steps = (this.params['shape_size'] / this.params['offset']);
     this.params['rotation'] = Math.random() < .5;
   }
 
@@ -97,7 +97,7 @@ class ConcentricSquareElement extends DesignElement{
       if(this.params['rotation'])
         rotate(45);
       for(let i = 0; i < this.steps; i++){
-        let size = (this.shape_size - (this.params['offset'] * i));
+        let size = (this.params['shape_size'] - (this.params['offset'] * i));
 
         if(this.params['rotation'])
           size = Math.sqrt( Math.pow(size, 2) /2 );
@@ -114,7 +114,7 @@ class FillCircleElement extends DesignElement{
     super();
     this.params['design_element'] = 'FullCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
-    this.ellipse_size = getRandomIntInclusive((this.shape_size * .1), this.shape_size);
+    this.ellipse_size = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
   }
 
   render(){
@@ -133,7 +133,7 @@ class HalfCircleElement extends DesignElement{
     super();
     this.params['design_element'] = 'HalfCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
-    this.params['ellipse_size'] = getRandomIntInclusive((this.shape_size * .1), this.shape_size);
+    this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
     this.params['angle'] = fetch_random_array_item(angles);
   }
@@ -156,7 +156,7 @@ class OverlappingCircleElement extends DesignElement{
     this.params['design_element'] = 'OverlappingCircleElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
-    this.params['circle_size'] = getRandomIntInclusive(10, (this.shape_size / 2));
+    this.params['circle_size'] = getRandomIntInclusive(10, (this.params['shape_size'] / 2));
     this.params['num_shapes'] = getRandomIntInclusive(4, 16);
     this.params['offset'] = 50;
     this.angle = 360 / this.params['num_shapes'];
@@ -188,7 +188,7 @@ class PlaceholderElement extends DesignElement{
     push();
       translate(this.x, this.y);
       stroke(this.params['stroke_color']);
-      rect(0, 0, this.shape_size, this.shape_size);
+      rect(0, 0, this.params['shape_size'], this.params['shape_size']);
       for(let i = 0; i < 8; i++){
         stroke('black');
         line(0, 0, 0, (shape_size / 2));
@@ -213,7 +213,7 @@ class StrokeCircleElement extends DesignElement{
 
     push();
       translate(this.x, this.y);
-      ellipse(0, 0, this.shape_size, this.shape_size);
+      ellipse(0, 0, this.params['shape_size'], this.params['shape_size']);
     pop();
   }
 }
