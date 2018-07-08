@@ -142,9 +142,18 @@ class HalfCircleElement extends DesignElement{
     super();
     this.params['design_element'] = 'HalfCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
-    this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
+    this.setEllipseSize();
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
     this.params['angle'] = fetch_random_array_item(angles);
+  }
+
+  setSize(size){
+    this.params['shape_size'] = size;
+    this.setEllipseSize();
+  }
+
+  setEllipseSize(){
+    this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
   }
 
   render(){
