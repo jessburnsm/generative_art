@@ -123,7 +123,16 @@ class FillCircleElement extends DesignElement{
     super();
     this.params['design_element'] = 'FullCircleElement';
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
-    this.ellipse_size = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
+    this.setEllipseSize();
+  }
+
+  setSize(size){
+    this.params['shape_size'] = size;
+    this.setEllipseSize();
+  }
+
+  setEllipseSize(){
+    this.params['ellipse_size'] = getRandomIntInclusive((this.params['shape_size'] * .1), this.params['shape_size']);
   }
 
   render(){
