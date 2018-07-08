@@ -141,7 +141,7 @@ class FillCircleElement extends DesignElement{
 
     push();
       translate(this.x, this.y);
-      ellipse(0, 0, this.ellipse_size, this.ellipse_size);
+      ellipse(0, 0, this.params['ellipse_size'], this.params['ellipse_size']);
     pop();
   }
 }
