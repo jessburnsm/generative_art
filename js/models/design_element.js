@@ -66,7 +66,21 @@ class ConcentricCircleElement extends DesignElement{
     this.params['design_element'] = 'ConcentricCircleElement';
     this.params['stroke_color'] = options['stroke_color'] || getPaletteColor();
     this.params['stroke_weight'] = options['stroke_weight'] || getStrokeWeight();
-    this.params['offset'] = getRandomIntInclusive(10, 50);
+    this.setOffset();
+    this.setSteps();
+  }
+
+  setSize(size){
+    this.params['shape_size'] = size;
+    this.setOffset();
+    this.setSteps();
+  }
+
+  setOffset(){
+    this.params['offset'] = getRandomIntInclusive((this.params['shape_size'] / 8), this.params['shape_size']);
+  }
+
+  setSteps(){
     this.steps = (this.params['shape_size'] / this.params['offset']);
   }
 
