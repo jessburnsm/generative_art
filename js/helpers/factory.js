@@ -24,6 +24,10 @@ class Factory {
             return new ArcElement();
         }
 
+        if(value === 'PetalsElement') {
+          return new PetalsElement();
+        }
+
         throw new Error(`Could not instantiate ${value}`);
     }
 }

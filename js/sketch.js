@@ -15,7 +15,8 @@ const ELEMENT_LIBRARY = [
   'ConcentricCircleElement',
   'OverlappingCircleElement',
   'HalfCircleElement',
-  'ArcElement'
+  'ArcElement',
+  'PetalsElement'
 ];
 
 const DEBUG = true;
