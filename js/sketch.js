@@ -29,7 +29,7 @@ function setup(){
 }
 
 function draw(){
-  new SquareGrid(900, 3).render();
+  new Grid(900, 5, 2).render();
 }
 
 function exportCanvas(){
