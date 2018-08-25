@@ -22,20 +22,21 @@ const ELEMENT_LIBRARY = [
 
 const DEBUG = true;
 
-let SEED = Math.random().toString(36).substring(2);
+let SEED = ''; // random without calling math.random?
+
+let GRID_X = 3;
+let GRID_Y = 3;
 
 function setup(){
   createCanvas(1000, 1000, SVG);
   angleMode(DEGREES);
   rectMode(CENTER);
   noLoop();
-  setRandomSeed();
-
-  console.log(SEED);
+  setGridConfiguration();
 }
 
 function draw(){
-  new Grid(900, 3).render();
+  new Grid(900, GRID_X, GRID_Y).render();
 }
 
 function exportCanvas(){
