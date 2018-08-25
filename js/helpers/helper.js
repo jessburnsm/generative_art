@@ -26,11 +26,33 @@ function fetchRandomArrayItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function setGridConfiguration() {
+  setRandomSeed();
+  setGridSize();
+}
+
+function setGridSize() {
+  let x = getQueryVariable('grid_x');
+  let y = getQueryVariable('grid_y');
+
+  if(x)
+    GRID_X = x;
+  if(y)
+    GRID_Y = y;
+
+  document.forms['config'].elements['grid_x'].value = GRID_X;
+  document.forms['config'].elements['grid_y'].value = GRID_Y;
+}
+
 function setRandomSeed() {
   let s = getQueryVariable('seed');
-  if(s) {
+  
+  if(s)
     SEED = s;
-    Math.seedrandom(SEED);
-    document.forms['config'].elements['seed'].value = SEED;
-  }
+  else
+    SEED = Math.random().toString(36).substring(2);
+
+  Math.seedrandom(SEED);
+
+  document.forms['config'].elements['seed'].value = SEED;
 }
