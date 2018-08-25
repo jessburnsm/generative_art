@@ -53,9 +53,34 @@
         float: right;
         height: 30px;
       }
+
+      form{
+        float: right;
+      }
     </style>
   </head>
   <body>
+    <form name="config">
+      <div>
+        <label>Seed Value: </label>
+        <input type="text" name="seed" value="" />
+      </div>
+
+      <div>
+        <label>Grid Width: </label>
+        <input type="text" name="grid_w" value="" />
+      </div>
+
+      <div>
+        <label>Grid Height: </label>
+        <input type="text" name="grid_y" value="" />
+      </div>
+
+      <button>Generate</button>
+    </form>
     <button onclick="exportCanvas()">Save SVG</button>
+    <script>
+      document.forms['config'].elements['seed'].value = SEED;
+    </script>
   </body>
 </html>
