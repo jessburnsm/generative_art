@@ -5,7 +5,7 @@ class HalfCircleElement extends DesignElement{
     this.params['fill_color'] = options['fill_color'] || getPaletteColor();
     this.setEllipseSize();
     let angles = [0, 45, 90, 135, 180, 225, 270, 315, 360];
-    this.params['angle'] = fetch_random_array_item(angles);
+    this.params['angle'] = fetchRandomArrayItem(angles);
   }
 
   setSize(size){

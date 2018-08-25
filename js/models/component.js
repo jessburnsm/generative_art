@@ -9,7 +9,7 @@ class Component{
 
   generate_design_elements(){
     for(let i = 0; i < getRandomInt(1, 10); i++){
-      this.design_elements.push(Factory.getInstance(fetch_random_array_item(ELEMENT_LIBRARY)));
+      this.design_elements.push(Factory.getInstance(fetchRandomArrayItem(ELEMENT_LIBRARY)));
     }
   }
 
