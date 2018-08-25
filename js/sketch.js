@@ -16,7 +16,8 @@ const ELEMENT_LIBRARY = [
   'OverlappingCircleElement',
   'HalfCircleElement',
   'ArcElement',
-  'PetalsElement'
+  'PetalsElement',
+  //'DotFillElement'
 ];
 
 const DEBUG = true;
@@ -29,7 +30,7 @@ function setup(){
 }
 
 function draw(){
-  new Grid(900, 5, 2).render();
+  new Grid(900, 3).render();
 }
 
 function exportCanvas(){

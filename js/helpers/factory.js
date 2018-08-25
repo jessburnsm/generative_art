@@ -28,6 +28,10 @@ class Factory {
           return new PetalsElement();
         }
 
+        if(value === 'DotFillElement'){
+          return new DotFillElement();
+        }
+
         throw new Error(`Could not instantiate ${value}`);
     }
 }
