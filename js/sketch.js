@@ -22,11 +22,16 @@ const ELEMENT_LIBRARY = [
 
 const DEBUG = true;
 
+let SEED = '';
+
 function setup(){
   createCanvas(1000, 1000, SVG);
   angleMode(DEGREES);
   rectMode(CENTER);
   noLoop();
+  setRandomSeed();
+
+  console.log(SEED);
 }
 
 function draw(){
