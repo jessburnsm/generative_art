@@ -31,5 +31,6 @@ function setRandomSeed() {
   if(s) {
     SEED = s;
     Math.seedrandom(SEED);
+    document.forms['config'].elements['seed'].value = SEED;
   }
 }
