@@ -22,7 +22,7 @@ const ELEMENT_LIBRARY = [
 
 const DEBUG = true;
 
-let SEED = Math.random();
+let SEED = Math.random().toString(36).substring(2);
 
 function setup(){
   createCanvas(1000, 1000, SVG);
